@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+
+<form action="#" th:action="@{/update/{id}(id=${user.id})}" th:object="${user}" method="post" class="mt-4 p-4 border rounded shadow-sm bg-light">
+    <h3 class="text-center mb-4">Modifier l'Utilisateur</h3>
+
+    <div class="form-group mb-3">
+        <label for="name" class="form-label">Nom <i class="fas fa-user"></i></label>
+        <input type="text" th:field="*{name}" id="name" class="form-control" placeholder="Entrez le nom" required>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="email" class="form-label">Email <i class="fas fa-envelope"></i></label>
+        <input type="email" th:field="*{email}" id="email" class="form-control" placeholder="Entrez l'email" required>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Mettre à Jour l'Utilisateur</button>
+
+    <div class="mt-3 text-center">
+        <a href="/users" class="btn btn-secondary">Retour à la Liste des Utilisateurs</a>
+    </div>
+</form>
+
+<style>
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    }
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+</style>
